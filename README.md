@@ -2,7 +2,8 @@
 A simple terminal based management system for elections. Written in C++. Academy project in a course called: "Object Oriented Programming and C++ programming language".
 
 
-Project Summary
+Project Summary:
+
 This project was initially inteded for the student to properly study Object Oriented Programming.
 Therefore putting a lot of emphasize on those concepts: Classes, Encapsulation, Polymorphism, Inheritance.
 Another goal of the course was to teach us the use of C++ programming language.
