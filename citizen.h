@@ -10,7 +10,7 @@ class citizen {
 private:
     string name;
     int id{0};
-    int birthYear_{0};
+    int birthYear{0};
     district *district_{nullptr};
     bool vote_{false};
 
@@ -30,7 +30,7 @@ public:
     citizen &operator=(const citizen &other);
 
     bool operator==(const citizen &other) {
-        return (this->name == other.name) && (this->id == other.id) && (this->birthYear_ == other.birthYear_) &&
+        return (this->name == other.name) && (this->id == other.id) && (this->birthYear == other.birthYear) &&
                (this->district_ == other.district_) && (this->vote_ == other.vote_);
     }
 
@@ -40,7 +40,7 @@ public:
 
     [[nodiscard]] int getID() const { return id; }
 
-    [[nodiscard]] int  getBirthYear() const { return birthYear_; }
+    [[nodiscard]] int  getBirthYear() const { return birthYear; }
 
     [[maybe_unused]] [[nodiscard]] bool getVote() const { return vote_; }
 

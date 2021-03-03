@@ -14,7 +14,7 @@ citizen &citizen::operator=(const citizen &other) {
     if (*this != other) {
         this->name = other.name;
         this->id = other.id;
-        this->birthYear_ = other.birthYear_;
+        this->birthYear = other.birthYear;
         delete this->district_;
         this->district_ = other.district_;
     }
@@ -37,7 +37,7 @@ void citizen::setID(int id) noexcept(false) {
 void citizen::setBirthYear(int birth_year) noexcept(false) {
     if (birth_year < 0)
         throw (input_invalid("birth year must be a positive number"));
-    this->birthYear_ = birth_year;
+    this->birthYear = birth_year;
 }
 
 void citizen::setDistrict(district *pDistrict) noexcept(false) {
@@ -61,7 +61,7 @@ bool citizen::save(ostream &out) const {
     out << name;
 
     out.write(rcastcc(&id), sizeof(id));
-    out.write(rcastcc(&birthYear_), sizeof(birthYear_));
+    out.write(rcastcc(&birthYear), sizeof(birthYear));
     out.write(rcastcc(&vote_), sizeof(vote_));
 
     int districtID = district_->getID();
