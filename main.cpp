@@ -9,6 +9,7 @@ void unhandledException() {
 
 int main() {
     set_terminate(unhandledException);
+    cout << "test" << endl;
     run();
 }
 
