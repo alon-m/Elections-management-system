@@ -8,8 +8,8 @@
 
 class district {
 protected:
-    string name_;
-    int id_{};
+    string name;
+    int id{};
     int electors_{};
     int citizens_ = 0;
     result *result_{};
@@ -31,7 +31,7 @@ public:
     district &operator=(const district &other);
 
     bool operator==(const district &other) {
-        return (this->name_ == other.name_) && (this->id_ == other.id_) &&
+        return (this->name == other.name) && (this->id == other.id) &&
                (this->electors_ == other.electors_) && (this->result_ == other.result_)
                && (this->type_ == other.type_) && (this->citizens_ == other.citizens_);
     }
@@ -42,9 +42,9 @@ public:
 
     [[nodiscard]] virtual string getTypeName() const { return "Unknown"; }
 
-    [[nodiscard]] const string & getName() const { return name_; }
+    [[nodiscard]] const string & getName() const { return name; }
 
-    [[nodiscard]] int getID() const { return id_; }
+    [[nodiscard]] int getID() const { return id; }
 
     [[nodiscard]] int getElectorsAmount() const { return electors_; }
 
@@ -52,9 +52,9 @@ public:
 
     void set(const string &name, int id, int electors) noexcept(false);
 
-    void setName(const string& name) { this->name_ = name; }
+    void setName(const string& name) { this->name = name; }
 
-    void setID(int id) { this->id_ = id; }
+    void setID(int id) { this->id = id; }
 
     void setElectors(int val) noexcept(false);
 

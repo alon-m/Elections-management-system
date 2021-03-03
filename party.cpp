@@ -21,8 +21,8 @@ party::~party() {
 
 party &party::operator=(const party &other) {
     if (*this != other) {
-        this->name_ = other.name_;
-        this->id_ = other.id_;
+        this->name = other.name;
+        this->id = other.id;
         this->candidate_ = other.candidate_;
         this->partyReps_ = other.partyReps_;
         this->amountOfDistricts_ = other.amountOfDistricts_;
@@ -84,11 +84,11 @@ ostream &operator<<(ostream &os, const party &party) {
 
 bool party::save(ostream &out) const {
 
-    int size = name_.size();
+    int size = name.size();
     out.write(rcastcc(&size), sizeof(size));
-    out << name_;
+    out << name;
 
-    out.write(rcastcc(&id_), sizeof(id_));
+    out.write(rcastcc(&id), sizeof(id));
     out.write(rcastcc(&amountOfDistricts_), sizeof(amountOfDistricts_));
     out.write(rcastcc(&totalElectorsReceived_), sizeof(totalElectorsReceived_));
     out.write(rcastcc(&totalVotesReceived_), sizeof(totalVotesReceived_));
@@ -108,8 +108,8 @@ void party::load(istream &in) {
     in.read(&name[0], size);
     setName(name);
 
-    in.read(rcastc(&id_), sizeof(id_));
-    if (id_ < 0)
+    in.read(rcastc(&id), sizeof(id));
+    if (id < 0)
         throw (input_invalid("invalid data received when loading from file"));
     in.read(rcastc(&amountOfDistricts_), sizeof(amountOfDistricts_));
     if (amountOfDistricts_ < 0)

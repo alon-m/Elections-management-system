@@ -12,8 +12,8 @@ citizen::citizen(istream &in) {
 citizen &citizen::operator=(const citizen &other) {
 
     if (*this != other) {
-        this->name_ = other.name_;
-        this->id_ = other.id_;
+        this->name = other.name;
+        this->id = other.id;
         this->birthYear_ = other.birthYear_;
         delete this->district_;
         this->district_ = other.district_;
@@ -31,7 +31,7 @@ void citizen::set(const string &name, int id, int birth_year, district *pDistric
 void citizen::setID(int id) noexcept(false) {
     if (!(id >= 0 && id <= ID_MAX))
         throw (input_invalid("citizen's id can't be longer than 9 digits"));
-    this->id_ = id;
+    this->id = id;
 }
 
 void citizen::setBirthYear(int birth_year) noexcept(false) {
@@ -56,11 +56,11 @@ void citizen::castVote(const int pID) noexcept(false) {
 
 bool citizen::save(ostream &out) const {
 
-    int size = name_.size();
+    int size = name.size();
     out.write(rcastcc(&size), sizeof(size));
-    out << name_;
+    out << name;
 
-    out.write(rcastcc(&id_), sizeof(id_));
+    out.write(rcastcc(&id), sizeof(id));
     out.write(rcastcc(&birthYear_), sizeof(birthYear_));
     out.write(rcastcc(&vote_), sizeof(vote_));
 

@@ -3,7 +3,7 @@
 //
 #include "party.h"
 
-district::district() : id_(-1), electors_(0) {
+district::district() : id(-1), electors_(0) {
     result_ = new result(this);
 }
 
@@ -28,8 +28,8 @@ district::~district() {
 
 district &district::operator=(const district &other) {
     if (*this != other) {
-        this->name_ = other.name_;
-        this->id_ = other.id_;
+        this->name = other.name;
+        this->id = other.id;
         this->type_ = other.type_;
         this->electors_ = other.electors_;
         this->result_ = other.result_;
@@ -154,11 +154,11 @@ bool district::saveReps(ostream &out) const {
 bool district::save(ostream &out) const {
     out.write(rcastcc(&type_), sizeof(type_));  // saving district type
 
-    int size = name_.size();
+    int size = name.size();
     out.write(rcastc(&size), sizeof(size));
-    out << name_;
+    out << name;
 
-    out.write(rcastcc(&id_), sizeof(id_));
+    out.write(rcastcc(&id), sizeof(id));
     out.write(rcastcc(&electors_), sizeof(electors_));
     out.write(rcastcc(&citizens_), sizeof(citizens_));
 

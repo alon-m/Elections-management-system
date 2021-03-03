@@ -8,8 +8,8 @@
 
 class citizen {
 private:
-    string name_;
-    int id_{0};
+    string name;
+    int id{0};
     int birthYear_{0};
     district *district_{nullptr};
     bool vote_{false};
@@ -30,15 +30,15 @@ public:
     citizen &operator=(const citizen &other);
 
     bool operator==(const citizen &other) {
-        return (this->name_ == other.name_) && (this->id_ == other.id_) && (this->birthYear_ == other.birthYear_) &&
+        return (this->name == other.name) && (this->id == other.id) && (this->birthYear_ == other.birthYear_) &&
                (this->district_ == other.district_) && (this->vote_ == other.vote_);
     }
 
     bool operator!=(const citizen &other) { return !(*this == other); }
 
-    [[nodiscard]] const string & getName() const { return name_; }
+    [[nodiscard]] const string & getName() const { return name; }
 
-    [[nodiscard]] int getID() const { return id_; }
+    [[nodiscard]] int getID() const { return id; }
 
     [[nodiscard]] int  getBirthYear() const { return birthYear_; }
 
@@ -48,7 +48,7 @@ public:
 
     void set(const string &name, int id, int birth_year, district *pDistrict) noexcept(false);
 
-    void setName(const string &name) { this->name_ = name; }
+    void setName(const string &name) { this->name = name; }
 
     void setID(int id) noexcept(false);
 

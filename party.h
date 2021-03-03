@@ -8,8 +8,8 @@
 
 class party {
 private:
-    int id_{};
-    string name_;
+    int id{};
+    string name;
     citizen *candidate_{};
     repsList *partyReps_{};
     int amountOfDistricts_{};
@@ -31,7 +31,7 @@ public:
     party &operator=(const party &other);
 
     bool operator==(const party &other) {
-        return ((this->name_ == other.name_) && (this->id_ == other.id_) &&
+        return ((this->name == other.name) && (this->id == other.id) &&
                 (this->candidate_ == other.candidate_) && (this->partyReps_ == other.partyReps_) &&
                 (this->amountOfDistricts_ == other.amountOfDistricts_) &&
                 (this->totalElectorsReceived_ == other.totalElectorsReceived_) &&
@@ -40,9 +40,9 @@ public:
 
     bool operator!=(const party &other) { return !(*this == other); }
 
-    [[nodiscard]] const string & getName() const { return name_; }
+    [[nodiscard]] const string & getName() const { return name; }
 
-    [[nodiscard]] int getID() const { return id_; }
+    [[nodiscard]] int getID() const { return id; }
 
     [[nodiscard]] int getAmountOfDistricts() const { return amountOfDistricts_; }
 
@@ -57,9 +57,9 @@ public:
 
     void set(const string &name, int id, citizen *candidate, int districts_amount) noexcept(false);
 
-    void setID(int id) { this->id_ = id; }
+    void setID(int id) { this->id = id; }
 
-    void setName(const string &name) { this->name_ = name; }
+    void setName(const string &name) { this->name = name; }
 
     void setCandidate(citizen *can) noexcept(false);
 
